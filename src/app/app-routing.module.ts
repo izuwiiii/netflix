@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
 
-  {path: 'browse', component: BrowseComponent},
+  {path: 'Home', component: BrowseComponent},
   {path: 'Login', component: LoginComponent},
   {path: '**', component: BrowseComponent},
   

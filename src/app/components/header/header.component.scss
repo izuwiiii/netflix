@@ -47,6 +47,7 @@
 
             li {
                 font-weight: bold;
+                cursor: pointer;
 
                 img {
                     width: 20px;
@@ -71,4 +72,8 @@
             }
         }
     }
+}
+
+.active {
+    font-weight: bold;
 }

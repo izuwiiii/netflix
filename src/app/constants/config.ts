@@ -15,6 +15,11 @@ export const NOTIFICATIONS_IMAGE_URL = './assets/images/NotificationBell.svg'
 export const PLAY_IMAGE_URL = './assets/images/playbtn.svg'
 export const INFO_IMAGE_URL = './assets/images/infobtn.svg'
 
+export const FACEBOOK_IMAGE_URL = './assets/images/facebook.svg'
+export const INSTAGRAM_IMAGE_URL = './assets/images/Vectorinstagram.svg'
+export const TWITTER_IMAGE_URL = './assets/images/Vectortwitter.svg'
+export const YOUTUBE_IMAGE_URL = './assets/images/Vectoryoutube.svg'
+
 export const tmbdConfig = {
     apiKey: '63e275a8b3e09a9d4864bf72da8854f5',
     accesToken: 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2UyNzVhOGIzZTA5YTlkNDg2NGJmNzJkYTg4NTRmNSIsInN1YiI6IjY1NzRlMmYxN2EzYzUyMDBlYmZkMjRkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9yQqbMVSMSeiMyeXhTXawxGN024dGjX4Ok3X6W3tpkU'

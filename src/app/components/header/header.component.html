@@ -2,11 +2,11 @@
     <img (click)="navigateToMain()" [src]="logoUrl" alt="logo" class="logo w-52">
     <div class="navbar">
         <ul>
-            <li>Home Page</li>
-            <li>Series</li>
-            <li>Movies</li>
-            <li>New and Popular</li>
-            <li>My List</li>
+            <li routerLink="/Home" [routerLinkActive]="'active'">Home Page</li>
+            <li routerLink="/Shows" [routerLinkActive]="'active'">TV Shows</li>
+            <li routerLink="/Movies" [routerLinkActive]="'active'">Movies</li>
+            <li routerLink="/Newandpopular" [routerLinkActive]="'active'">New & Popular</li>
+            <li routerLink="/MyList" [routerLinkActive]="'active'">My List</li>
         </ul>
     </div>
     <div class="profile-list">
@@ -16,7 +16,6 @@
             <li><img src="{{giftboxUrl}}" alt="giftbox"></li>
             <li><img src="{{notificationsUrl}}" alt="notifications"></li>
             <li><img class="avatar" src="{{avatarUrl}}" alt="avatar"><img class="down-arrow" src="{{downarrowUrl}}" alt="downarrow"></li>
-            
         </ul>
     </div>
 </div>  

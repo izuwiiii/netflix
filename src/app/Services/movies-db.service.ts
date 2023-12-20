@@ -23,11 +23,22 @@ export class MoviesDBService implements OnInit {
 
   name: string = ''
 
+  // Headers
+
   getHeaders() {
     let headers = new HttpHeaders()
     headers = headers.append('Accept', 'application/json')
     headers = headers.append('Authorization', 'Bearer '+tmbdConfig.accesToken)
     return headers
+  }
+
+  // Movies
+
+  getTrendingMovies() {
+    const headers = this.getHeaders()
+    return this.http.get('https://api.themoviedb.org/3/trending/movie/day', {
+      headers: headers
+    })
   }
 
   getPopularMovies() {
@@ -57,5 +68,7 @@ export class MoviesDBService implements OnInit {
       headers: headers
     })
   }
+
+  
   
 }

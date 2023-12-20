@@ -19,6 +19,7 @@ export class BrowseComponent {
   popularMovie: any[] = []
   nowPlayingMovie: any[] = []
   topRatedMovie: any[] = []
+  trendingMovie: any[] = []
   upcomingMovie: any[] = []
 
   playBtnUrl: string = PLAY_IMAGE_URL
@@ -30,6 +31,9 @@ export class BrowseComponent {
     })
     this.moviesdbService.getNowPlayingMovies().subscribe((result:any) => {
       this.nowPlayingMovie = result.results
+    })
+    this.moviesdbService.getNowPlayingMovies().subscribe((result:any) => {
+      this.trendingMovie = result.results
     })
     this.moviesdbService.getTopRatedMovies().subscribe((result:any) => {
       this.topRatedMovie = result.results

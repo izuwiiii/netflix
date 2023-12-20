@@ -1,6 +1,11 @@
 .category {
     padding: 20px 20px 20px 0px;
     box-shadow: #141414;
+    
+    swiper-slide {
+        cursor: pointer;
+    }
+
 
     h2 {
         font-size: 25px;

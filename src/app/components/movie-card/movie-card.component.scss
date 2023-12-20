@@ -1,12 +1,17 @@
-
-
 .movie-card {
     color: white;
     width: 200px;
     height: 250px;
+    transition: ease 0.3s;
+    z-index: 9999;
+
     .movie-image {
         width: 200px;
         height: 250px;
 
     }
+}
+
+.movie-card:hover {
+    // scale: 1.1;
 }

@@ -1,7 +1,5 @@
 <app-header></app-header>
-<div class="browse-page">
-    <div class="banner">
-    </div>        
+<div class="browse-page">  
     <div class="banner-movie-info" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+popularMovie[0].backdrop_path+')'}">
         <div class="movie-info">
             <h1>{{popularMovie[0].title}}</h1>
@@ -11,14 +9,14 @@
                 <button class="info-btn"><img [src]="infoBtnUrl" alt="info btn"><p>More Info</p></button>
             </div>
         </div>
-
     </div>         
     <div class="movie-categories">
-        <!-- <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category> -->
-        <!-- <app-movie-category [title]="'Now Playing'" [movieList]="nowPlayingMovie"></app-movie-category> -->
+        <!-- <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category>
+        <app-movie-category [title]="'Now Playing'" [movieList]="nowPlayingMovie"></app-movie-category> -->
         <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category>
         <app-movie-category [title]="'Top Rated'" [movieList]="topRatedMovie"></app-movie-category>
+        <app-movie-category [title]="'Trending'" [movieList]="trendingMovie"></app-movie-category>
         <app-movie-category [title]="'Upcoming'" [movieList]="upcomingMovie"></app-movie-category>
-        
     </div>                                    
 </div>
+<app-footer></app-footer>

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+import { FooterComponent } from './components/footer/footer.component';
 // register Swiper custom elements
 register();
 
@@ -27,7 +28,8 @@ register();
     MovieCardComponent,
     BrowseComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
