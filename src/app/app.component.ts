@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MoviesDBService } from './Services/movies-db.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-tmdb';
+  moviesdbService = inject(MoviesDBService)
+
+  ngOnInit() {
+    this.moviesdbService.getPopularMovies()
+  }
+
+
+
 }

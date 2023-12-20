@@ -1,0 +1,74 @@
+.header {
+    background-color: #141414;
+    display: flex;
+
+    .logo {
+        width: 150px;
+        height: 80px;
+        margin-left: 50px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .navbar {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        min-width: 500px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            li {
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .profile-list {
+        color: white;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 80px;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            height: auto;
+
+            li {
+                font-weight: bold;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+
+                }
+
+                &:last-child {
+                    display: flex;
+                    gap: 5px;
+
+                    .avatar {
+                        width: 25px;
+                        height: 25px;
+                    }
+
+                    .down-arrow {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
