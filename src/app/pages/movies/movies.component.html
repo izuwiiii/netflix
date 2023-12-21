@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="browse-page">  
+    <div class="banner-movie-info" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+trendingMovie[0].backdrop_path+')'}">
+        <div class="movie-info">
+            <h1>{{trendingMovie[0].name}}</h1>
+            <p>{{trendingMovie[0].overview}}</p>
+            <div class="buttons-wrapper">
+                <button class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>
+                <button class="info-btn"><img [src]="infoBtnUrl" alt="info btn"><p>More Info</p></button>
+            </div>
+        </div>
+    </div>         
+    <div class="movie-categories">
+        <app-movie-category [title]="'Trending'" [movieList]="trendingMovie"></app-movie-category>
+        <app-movie-category [title]="'Action'" [movieList]="actionMovies"></app-movie-category>
+        <app-movie-category [title]="'Children & Family Movies'" [movieList]="childrenMovies"></app-movie-category>
+        <app-movie-category [title]="'Action Thrillers'" [movieList]="thrillerMovies"></app-movie-category>
+        <app-movie-category [title]="'Top 10 TV Movies'" [movieList]="tvMovies"></app-movie-category>
+
+    </div>                                    
+</div>
+<app-footer></app-footer>

@@ -145,5 +145,42 @@ export class MoviesDBService implements OnInit {
       headers: headers,
     })
   }
+
+  // Actions id 28
+
+  getActionMovies() {
+    const headers = this.getHeaders()
+    return this.http.get('https://api.themoviedb.org/3/discover/movie?with_genres=28', {
+      headers: headers,
+    })
+  }
+
+  // Children & Family id 10751
+
+  getFamilyMovies() {
+    const headers = this.getHeaders()
+    return this.http.get('https://api.themoviedb.org/3/discover/movie?with_genres=10751', {
+      headers: headers,
+    })
+  }
+
+  // Action Thriller id 53
+
+  getThrillerMovies() {
+    const headers = this.getHeaders()
+    return this.http.get('https://api.themoviedb.org/3/discover/movie?with_genres=53', {
+      headers: headers,
+    })
+  }
+
+  // Top 10 TV Movies id 10770
+
+  getTVMovies() {
+    const headers = this.getHeaders()
+    return this.http.get('https://api.themoviedb.org/3/discover/movie?with_genres=10770', {
+      headers: headers,
+    })
+  }
+
   
 }

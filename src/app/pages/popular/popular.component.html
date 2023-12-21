@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="browse-page">  
+    <div class="banner-movie-info" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+airing[0].backdrop_path+')'}">
+        <div class="movie-info">
+            <h1>{{airing[0].name}}</h1>
+            <p>{{airing[0].overview}}</p>
+            <div class="buttons-wrapper">
+                <button class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>
+                <button class="info-btn"><img [src]="infoBtnUrl" alt="info btn"><p>More Info</p></button>
+            </div>
+        </div>
+    </div>         
+    <div class="movie-categories">
+        <app-movie-category [title]="'New on Netflix'" [movieList]="airing"></app-movie-category>
+        <app-movie-category [title]="'Top 10 TV Shows'" [movieList]="trendingMovie"></app-movie-category>
+        <app-movie-category [title]="'Top 10 Movies'" [movieList]="tvShow"></app-movie-category>
+        <app-movie-category [title]="'Coming Next Week'" [movieList]="nextWeek"></app-movie-category>
+
+    </div>                                    
+</div>
+<app-footer></app-footer>
