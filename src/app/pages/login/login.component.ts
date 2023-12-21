@@ -23,7 +23,7 @@ export class LoginComponent {
       this.toastr.error("Provide email or password!", 'Error!')
     } else {
       this.toastr.success('You are welcome!', 'Log In complete')
-      this.router.navigateByUrl('/browse')
+      this.router.navigateByUrl('/Home')
     }
     this.service.name = this.email
   }

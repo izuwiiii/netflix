@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="browse-page">  
+    <div class="banner-movie-info" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+airingTodayTV[0].backdrop_path+')'}">
+        <div class="movie-info">
+            <h1>{{airingTodayTV[0].name}}</h1>
+            <p>{{airingTodayTV[0].overview}}</p>
+            <div class="buttons-wrapper">
+                <button class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>
+                <button class="info-btn"><img [src]="infoBtnUrl" alt="info btn"><p>More Info</p></button>
+            </div>
+        </div>
+    </div>         
+    <div class="movie-categories">
+        <app-movie-category [title]="'Airing Today'" [movieList]="airingTodayTV"></app-movie-category>
+        <app-movie-category [title]="'On The Air'" [movieList]="onTheAirTV"></app-movie-category>
+        <app-movie-category [title]="'Popular'" [movieList]="popularTV"></app-movie-category>
+        <app-movie-category [title]="'Trending'" [movieList]="trendingTV"></app-movie-category>
+        <app-movie-category [title]="'Top Comedies'" [movieList]="comediesShows"></app-movie-category>
+        <app-movie-category [title]="'Us TV Dramas'" [movieList]="dramasShows"></app-movie-category>
+        <app-movie-category [title]="'Animations'" [movieList]="animations"></app-movie-category>
+        <app-movie-category [title]="'Sci-Fi & Fantasy'" [movieList]="fantasy"></app-movie-category>
+
+    </div>                                    
+</div>
+<app-footer></app-footer>

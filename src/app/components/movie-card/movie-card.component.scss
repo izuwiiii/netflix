@@ -4,6 +4,10 @@
     height: 250px;
     transition: ease 0.3s;
     z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 
     .movie-image {
         width: 200px;
@@ -12,6 +16,3 @@
     }
 }
 
-.movie-card:hover {
-    // scale: 1.1;
-}

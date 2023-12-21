@@ -11,12 +11,17 @@
         </div>
     </div>         
     <div class="movie-categories">
-        <!-- <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category>
-        <app-movie-category [title]="'Now Playing'" [movieList]="nowPlayingMovie"></app-movie-category> -->
-        <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category>
-        <app-movie-category [title]="'Top Rated'" [movieList]="topRatedMovie"></app-movie-category>
-        <app-movie-category [title]="'Trending'" [movieList]="trendingMovie"></app-movie-category>
-        <app-movie-category [title]="'Upcoming'" [movieList]="upcomingMovie"></app-movie-category>
+        <!-- <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category> -->
+        <!-- <app-movie-category [title]="'Now Playing'" [movieList]="nowPlayingMovie"></app-movie-category> -->
+        <app-movie-category [title]="'Popular Movies'" [movieList]="popularMovie"></app-movie-category>
+        <app-movie-category [title]="'Top Rated Movies'" [movieList]="topRatedMovie"></app-movie-category>
+        <app-movie-category [title]="'Trending Movies'" [movieList]="trendingMovie"></app-movie-category>
+        <app-movie-category [title]="'Upcoming Movies'" [movieList]="upcomingMovie"></app-movie-category>
+
+        <app-movie-category [title]="'Popular TV Shows'" [movieList]="popularTV"></app-movie-category>
+        <app-movie-category [title]="'Trending TV Shows'" [movieList]="trendingTV"></app-movie-category>
+
+        <app-movie-category [title]="'Top Comedies'" [movieList]="comediesTV"></app-movie-category>
     </div>                                    
 </div>
 <app-footer></app-footer>
