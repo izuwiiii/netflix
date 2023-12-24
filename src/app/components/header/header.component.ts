@@ -21,7 +21,33 @@ export class HeaderComponent {
 
   username: string = this.service.name
 
+  input: string = ''
+
+  srcList: any[] = []
+ 
   navigateToMain() {
     this.router.navigateByUrl('/Login')
+  }
+
+  makeUniq = (arr) => [...new Set(arr)];
+
+  searchShow(text) {
+    this.input = text.value
+    this.service.moviesList.forEach(item => {
+      item.find(x => {
+        // console.log(x.title.includes(this.input))
+        if (x.title.toLowerCase().includes(this.input.toLowerCase())) {
+          // console.log(x.title.toLowerCase())
+          // this.srcList.forEach(it => {
+          //   // console.log(it.id )
+          // })
+          this.srcList.push(x)
+        }
+
+      })
+    })
+    // console.log(this.srcList)
+    this.service.getSearchedList(this.srcList)
+    return this.srcList
   }
 }

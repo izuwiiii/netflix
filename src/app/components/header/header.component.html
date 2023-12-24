@@ -11,7 +11,16 @@
     </div>
     <div class="profile-list">
         <ul>
-            <li><img src="{{searchUrl}}" alt="search"></li>
+            <li class="search">
+
+                <!-- <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option mat-option [value]=""></mat-option>
+                </mat-autocomplete> -->
+                <input #text
+                        placeholder="Search">
+                <img (click)="searchShow(text)" src="{{searchUrl}}" alt="search">
+
+            </li>
             <li>{{username}}</li>
             <li><img src="{{giftboxUrl}}" alt="giftbox"></li>
             <li><img src="{{notificationsUrl}}" alt="notifications"></li>

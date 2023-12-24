@@ -45,6 +45,14 @@
             gap: 15px;
             height: auto;
 
+            .search {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                color: #141414;
+            }
+
             li {
                 font-weight: bold;
                 cursor: pointer;

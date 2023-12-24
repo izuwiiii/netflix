@@ -23,6 +23,8 @@ export class BrowseComponent {
   playBtnUrl: string = PLAY_IMAGE_URL;
   infoBtnUrl: string = INFO_IMAGE_URL;
 
+  allMovies: any[] = []
+
   popularMovie: Movie[] = [];
   nowPlayingMovie: any[] = [];
   topRatedMovie: any[] = [];
@@ -42,33 +44,41 @@ export class BrowseComponent {
 
     this.moviesdbService.getPopularMovies().subscribe((result: any) => {
       this.popularMovie = result.results;
+      this.allMovies.push(result.results);
       this.bannerMovie = this.popularMovie[0];
       this.moviesdbService
         .getMovieVideos(this.bannerMovie.id)
         .subscribe((res: any) => {
-          console.log(res)
+          // console.log(res)
           res.results.find(
             (x: any) =>  {
-              console.log(res.results)
-              console.log(x)
+              // console.log(res.results)
+              // console.log(x)
               x.site = 'YouTube'
               this.bannerMovie.videoKey = x.key
             }
           )
-          console.log(this.bannerMovie)
+          // console.log(this.bannerMovie)
         });
     });
     this.moviesdbService.getNowPlayingMovies().subscribe((result: any) => {
       this.nowPlayingMovie = result.results;
+      this.allMovies.push(result.results);
+      // console.log(this.allMovies)
     });
     this.moviesdbService.getTrendingMovies().subscribe((result: any) => {
       this.trendingMovie = result.results;
+      this.allMovies.push(result.results);
     });
     this.moviesdbService.getTopRatedMovies().subscribe((result: any) => {
       this.topRatedMovie = result.results;
+      this.allMovies.push(result.results);
+      // console.log(this.allMovies)
     });
     this.moviesdbService.getUpcomingMovies().subscribe((result: any) => {
       this.upcomingMovie = result.results;
+      this.allMovies.push(result.results);
+      console.log(this.allMovies)
     });
 
     // TV
@@ -84,6 +94,9 @@ export class BrowseComponent {
 
     this.moviesdbService.getComediesTV().subscribe((result: any) => {
       this.comediesTV = result.results;
+      // console.log(this.comediesTV)
     });
+
+    this.moviesdbService.getMoviesList(this.allMovies)
   }
 }

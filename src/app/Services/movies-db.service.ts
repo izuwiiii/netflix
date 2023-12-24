@@ -2,6 +2,7 @@ import { Movie } from './../Models/movies';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { MOVIES_URL, tmbdConfig } from '../constants/config';
+import { GetMovie } from '../Models/movie';
 
 
 @Injectable({
@@ -15,16 +16,26 @@ export class MoviesDBService implements OnInit {
 
   }
 
-  movieList: any[] = []
+  // movieList: any = {}
 
   name: string = ''
   randomPage: number = 1;
 
+  moviesList: any = []
+
   generatePage() {
     this.randomPage = Math.floor(Math.random() * 5)
-
   }
   
+  getMoviesList(list) {
+    this.moviesList = list
+    console.log(this.moviesList)
+  }
+
+  getSearchedList(list) {
+    console.log(list)
+  }
+
   // Headers
 
   getHeaders() {
@@ -56,7 +67,6 @@ export class MoviesDBService implements OnInit {
       }
     )
   }
-
 
   // Movies
 
@@ -134,7 +144,6 @@ export class MoviesDBService implements OnInit {
     const headers = this.getHeaders()
     return this.http.get('https://api.themoviedb.org/3/discover/tv?with_genres=35', {
       headers: headers,
-
     })
   }
 

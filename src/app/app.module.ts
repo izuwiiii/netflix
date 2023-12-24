@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
@@ -22,6 +23,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { MoviesComponent } from './pages/movies/movies.component';
 import { PopularComponent } from './pages/popular/popular.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
+import { SearchComponent } from './pages/search/search.component';
 
 // register Swiper custom elements
 register();
@@ -39,7 +41,8 @@ register();
     NotFoundPageComponent,
     MoviesComponent,
     PopularComponent,
-    MyListComponent
+    MyListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ register();
     ButtonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    
+    // MatAutocompleteModule
   ],
   providers: [
               provideAnimations(), // required animations providers
