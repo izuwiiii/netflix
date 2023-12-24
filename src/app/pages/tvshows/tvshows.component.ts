@@ -1,4 +1,6 @@
 import { Component, inject } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Movie } from 'src/app/Models/movies';
 import { MoviesDBService } from 'src/app/Services/movies-db.service';
 import { INFO_IMAGE_URL, LOGO_URL, PLAY_IMAGE_URL } from 'src/app/constants/config';
 
@@ -8,21 +10,25 @@ import { INFO_IMAGE_URL, LOGO_URL, PLAY_IMAGE_URL } from 'src/app/constants/conf
   styleUrls: ['./tvshows.component.scss']
 })
 export class TvshowsComponent {
+  constructor(public domSanitizer: DomSanitizer) {}
+
   moviesdbService = inject(MoviesDBService)
   logoUrl = LOGO_URL
 
   playBtnUrl: string = PLAY_IMAGE_URL
   infoBtnUrl: string = INFO_IMAGE_URL
 
-  airingTodayTV: any[] = []
+  airingTodayTV: Movie[] = []
   onTheAirTV: any[] = []
-  popularTV: any[] = []
+  popularTV: Movie[] = []
   trendingTV: any[] = []
 
   comediesShows: any[] = []
   dramasShows: any[] = []
   animations: any[] = []
   fantasy: any[] = []
+
+  bannerMovie!: Movie;
 
   ngOnInit() {
 
@@ -31,12 +37,28 @@ export class TvshowsComponent {
     this.moviesdbService.getAiringTodayTVShows().subscribe((result:any) => {
       this.airingTodayTV = result.results
       console.log(result.results)
+
     })
     this.moviesdbService.getOnTheAirTVShows().subscribe((result:any) => {
       this.onTheAirTV = result.results
     })
     this.moviesdbService.getPopularTVShows().subscribe((result:any) => {
       this.popularTV = result.results
+      this.bannerMovie = this.popularTV[0];
+      this.moviesdbService
+        .getTVVideos(this.bannerMovie.id)
+        .subscribe((res: any) => {
+          console.log(res)
+          res.results.find(
+            (x: any) =>  {
+              console.log(res.results)
+              console.log(x)
+              x.site = 'YouTube'
+              this.bannerMovie.videoKey = x.key
+            }
+          )
+          console.log(this.bannerMovie)
+        });
     })
     this.moviesdbService.getTrendingTVShows().subscribe((result:any) => {
       this.trendingTV = result.results

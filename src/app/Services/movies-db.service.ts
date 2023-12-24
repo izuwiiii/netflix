@@ -1,6 +1,8 @@
+import { Movie } from './../Models/movies';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { MOVIES_URL, tmbdConfig } from '../constants/config';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +15,6 @@ export class MoviesDBService implements OnInit {
 
   }
 
-  // headers = new HttpHeaders({
-  //   'Accept': 'application/json',
-  //   'Authorization': 'Bearer '+accesToken,
-  // });
-
-  // options = { headers: this.headers }
   movieList: any[] = []
 
   name: string = ''
@@ -32,12 +28,35 @@ export class MoviesDBService implements OnInit {
   // Headers
 
   getHeaders() {
-    this.generatePage()
+    // this.generatePage()
     let headers = new HttpHeaders()
     headers = headers.append('Accept', 'application/json')
     headers = headers.append('Authorization', 'Bearer '+tmbdConfig.accesToken)
     return headers
   }
+
+  // Video
+
+  getMovieVideos(movieId: number) {
+    const header = this.getHeaders()
+    return this.http.get(
+      'https://api.themoviedb.org/3/movie/'+movieId+'/videos',
+      {
+        headers: header
+      }
+    )
+  }
+
+  getTVVideos(movieId: number) {
+    const header = this.getHeaders()
+    return this.http.get(
+      'https://api.themoviedb.org/3/tv/'+movieId+'/videos',
+      {
+        headers: header
+      }
+    )
+  }
+
 
   // Movies
 
@@ -48,7 +67,7 @@ export class MoviesDBService implements OnInit {
     })
   }
 
-  getPopularMovies() {
+  getPopularMovies<Movie>() {
     const headers = this.getHeaders()
     return this.http.get('https://api.themoviedb.org/3/movie/popular', {
       headers: headers

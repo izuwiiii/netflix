@@ -6,6 +6,7 @@ import { TvshowsComponent } from './pages/tvshows/tvshows.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { PopularComponent } from './pages/popular/popular.component';
+import { MyListComponent } from './pages/my-list/my-list.component';
 
 const routes: Routes = [
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'Tvshows', component: TvshowsComponent},
   {path: 'Movies', component: MoviesComponent},
   {path: 'Newandpopular', component: PopularComponent},
+  {path: 'Mylist', component: MyListComponent},
 
   {path: '**', component: NotFoundPageComponent},
   

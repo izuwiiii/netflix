@@ -13,7 +13,6 @@ import { ButtonModule } from 'primeng/button';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-// import { CarouselModule } from 'primeng/carousel';
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
@@ -22,6 +21,7 @@ import { TvshowsComponent } from './pages/tvshows/tvshows.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { PopularComponent } from './pages/popular/popular.component';
+import { MyListComponent } from './pages/my-list/my-list.component';
 
 // register Swiper custom elements
 register();
@@ -38,7 +38,8 @@ register();
     TvshowsComponent,
     NotFoundPageComponent,
     MoviesComponent,
-    PopularComponent
+    PopularComponent,
+    MyListComponent
   ],
   imports: [
     BrowserModule,

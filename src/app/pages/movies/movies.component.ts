@@ -1,4 +1,6 @@
 import { Component, inject } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Movie } from 'src/app/Models/movies';
 import { MoviesDBService } from 'src/app/Services/movies-db.service';
 import { INFO_IMAGE_URL, LOGO_URL, PLAY_IMAGE_URL } from 'src/app/constants/config';
 
@@ -8,6 +10,8 @@ import { INFO_IMAGE_URL, LOGO_URL, PLAY_IMAGE_URL } from 'src/app/constants/conf
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent {
+  constructor(public domSanitizer: DomSanitizer) {}
+
   moviesdbService = inject(MoviesDBService)
   logoUrl = LOGO_URL
 
@@ -22,19 +26,36 @@ export class MoviesComponent {
 
   thrillerMovies: any[] = []
 
-  tvMovies: any[] = []
+  tvMovies: Movie[] = []
 
   popularMovie: any[] = []
   nowPlayingMovie: any[] = []
   topRatedMovie: any[] = []
   upcomingMovie: any[] = []
 
+  bannerMovie!: Movie;
+
   ngOnInit() {
 
     // MOVIES
 
-    this.moviesdbService.getTrendingMovies().subscribe((result:any) => {
+    this.moviesdbService.getTrendingMovies().subscribe((result: any) => {
       this.trendingMovie = result.results
+      this.bannerMovie = this.trendingMovie[0];
+      this.moviesdbService
+        .getMovieVideos(this.bannerMovie.id)
+        .subscribe((res: any) => {
+          console.log(res)
+          res.results.find(
+            (x: any) =>  {
+              console.log(res.results)
+              console.log(x)
+              x.site = 'YouTube'
+              this.bannerMovie.videoKey = x.key
+            }
+          )
+          console.log(this.bannerMovie)
+        });
     })
 
     this.moviesdbService.getActionMovies().subscribe((result:any) => {
