@@ -22,6 +22,7 @@ export class MoviesDBService implements OnInit {
   randomPage: number = 1;
 
   moviesList: any = []
+  res: any = []
 
   generatePage() {
     this.randomPage = Math.floor(Math.random() * 5)
@@ -29,11 +30,13 @@ export class MoviesDBService implements OnInit {
   
   getMoviesList(list) {
     this.moviesList = list
-    console.log(this.moviesList)
+    // console.log(this.moviesList)
   }
 
   getSearchedList(list) {
     console.log(list)
+    this.res = list
+    // console.log(this.res)
   }
 
   // Headers

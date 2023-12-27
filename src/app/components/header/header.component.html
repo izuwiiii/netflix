@@ -16,9 +16,8 @@
                 <!-- <mat-autocomplete #auto="matAutocomplete">
                     <mat-option mat-option [value]=""></mat-option>
                 </mat-autocomplete> -->
-                <input #text
-                        placeholder="Search">
-                <img (click)="searchShow(text)" src="{{searchUrl}}" alt="search">
+                <input #text placeholder="Search">
+                <img routerLink="/Search" (click)="searchShow(text)" src="{{searchUrl}}" alt="search">
 
             </li>
             <li>{{username}}</li>

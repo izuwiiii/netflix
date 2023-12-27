@@ -78,13 +78,14 @@ export class BrowseComponent {
     this.moviesdbService.getUpcomingMovies().subscribe((result: any) => {
       this.upcomingMovie = result.results;
       this.allMovies.push(result.results);
-      console.log(this.allMovies)
+      // console.log(this.allMovies)
     });
 
     // TV
 
     this.moviesdbService.getPopularTVShows().subscribe((result: any) => {
       this.popularTV = result.results;
+      // this.allMovies.push(result.results);
     });
     this.moviesdbService.getTrendingTVShows().subscribe((result: any) => {
       this.trendingTV = result.results;
@@ -94,6 +95,7 @@ export class BrowseComponent {
 
     this.moviesdbService.getComediesTV().subscribe((result: any) => {
       this.comediesTV = result.results;
+      // this.allMovies.push(result.results);
       // console.log(this.comediesTV)
     });
 

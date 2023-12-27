@@ -7,6 +7,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { MoviesComponent } from './pages/movies/movies.component';
 import { PopularComponent } from './pages/popular/popular.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'Movies', component: MoviesComponent},
   {path: 'Newandpopular', component: PopularComponent},
   {path: 'Mylist', component: MyListComponent},
+  {path: 'Search', component: SearchComponent},
 
   {path: '**', component: NotFoundPageComponent},
   

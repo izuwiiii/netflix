@@ -1,0 +1,12 @@
+<h2 class="text-white font-bold mb-2 text-xl">{{title}} </h2>
+<div class="all">
+    <div class="container" >
+        <ng-container *ngFor="let movie of movieList">
+            <div class="card-container" >
+                <app-movie-card [movie]="movie" [movieList]="movieList"></app-movie-card>
+            </div>
+        </ng-container>
+    </div>
+    
+</div>
+

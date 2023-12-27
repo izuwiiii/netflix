@@ -1,0 +1,35 @@
+.all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+
+    .container {
+        padding: 20px 20px 20px 0px;
+        box-shadow: #141414;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: ease 0.2s;
+    
+        }
+
+        .card-container:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+
+h2 {
+    font-size: 25px;
+}
+
