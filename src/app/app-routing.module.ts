@@ -8,6 +8,7 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import { PopularComponent } from './pages/popular/popular.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
 import { SearchComponent } from './pages/search/search.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'Newandpopular', component: PopularComponent},
   {path: 'Mylist', component: MyListComponent},
   {path: 'Search', component: SearchComponent},
+  {path: 'Movie/:id', component: MovieDetailComponent},
 
   {path: '**', component: NotFoundPageComponent},
   

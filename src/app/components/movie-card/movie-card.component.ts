@@ -7,9 +7,9 @@ import { CarouselModule } from 'primeng/carousel';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
-  @Input() title='';
-  @Input() movie:any={};
-  @Input() movieList:any[]=[];
+  @Input() title = '';
+  @Input() movie: any = {};
+  @Input() movieList: any[] = [];
 
 
 }

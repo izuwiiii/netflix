@@ -8,7 +8,7 @@
     class="category">
     
     <swiper-slide class="flex gap-2" *ngFor="let movie of movieList; track movie" >
-        <app-movie-card [movie]="movie" [movieList]="movieList"></app-movie-card>
+        <app-movie-card (click)="getMovieDetails(card)" #card [movie]="movie" [movieList]="movieList"></app-movie-card>
     </swiper-slide>
 </swiper-container>
 

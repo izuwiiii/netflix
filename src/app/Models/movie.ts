@@ -1,20 +1,17 @@
 export class GetMovie {
+    adult: boolean;
     backdrop_path: string
     first_air_date: string
-    genre_ids: {
-        0: number
-        1: number
-    }
+    genre_ids: []
     id: number
-    name: string
-    origin_country: {
-        0: string
-    }
     original_language: string
-    original_name: string
+    original_title: string
     overview: string
     popularity: number
     poster_path: string
+    release_date: string;
+    title: string;
+    video: boolean;
     vote_average: number
     vote_count: number
 }

@@ -39,6 +39,7 @@ export class BrowseComponent {
 
   bannerMovie!: Movie;
 
+
   ngOnInit() {
     // MOVIES
 
@@ -63,21 +64,17 @@ export class BrowseComponent {
     });
     this.moviesdbService.getNowPlayingMovies().subscribe((result: any) => {
       this.nowPlayingMovie = result.results;
-      this.allMovies.push(result.results);
       // console.log(this.allMovies)
     });
     this.moviesdbService.getTrendingMovies().subscribe((result: any) => {
       this.trendingMovie = result.results;
-      this.allMovies.push(result.results);
     });
     this.moviesdbService.getTopRatedMovies().subscribe((result: any) => {
       this.topRatedMovie = result.results;
-      this.allMovies.push(result.results);
       // console.log(this.allMovies)
     });
     this.moviesdbService.getUpcomingMovies().subscribe((result: any) => {
       this.upcomingMovie = result.results;
-      this.allMovies.push(result.results);
       // console.log(this.allMovies)
     });
 

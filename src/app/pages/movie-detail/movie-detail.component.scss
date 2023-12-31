@@ -1,0 +1,58 @@
+.all {
+    width: 100vw;
+    height: 100vh;
+    
+    color: white;
+
+    .main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .movie-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            background-color: #141414;
+            width: 1000px;
+
+
+            .card-header {
+                background-size: cover;
+                width: 1000px;
+                height: 500px;
+                -webkit-box-shadow: inset 0px -65px 44px 0px rgba(20,20,20,0.59);
+                -moz-box-shadow: inset 0px -65px 44px 0px rgba(20,20,20,0.59);
+                box-shadow: inset 0px -65px 44px 0px rgba(20,20,20,0.59);
+                
+                .btns-wrapper {
+                    
+                    .play-btn {
+                        background-color: white;
+                        border-radius: 4px;
+                        color: black;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 175px;
+                        height: 60px;
+                        gap: 15px;
+                    }
+                }
+
+            }
+
+            .card-description {
+                height: 500px;
+
+            }
+
+
+        }
+
+    
+    
+    }
+}
+

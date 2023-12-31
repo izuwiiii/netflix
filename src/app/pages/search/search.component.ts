@@ -14,15 +14,16 @@ export class SearchComponent implements OnInit{
   constructor() {}
 
   moviesdbService = inject(MoviesDBService)
+  
   logoUrl = LOGO_URL
 
   searchedList: any[] = this.moviesdbService.moviesList
 
-  res: any[] = this.moviesdbService.res
+  res: any[] = []
 
   searchedResults!: allMovies;
 
-  all!: allMovies;
+  // all!: allMovies;
 
   canLoad: boolean = true;
 
@@ -44,6 +45,8 @@ export class SearchComponent implements OnInit{
           this.res.push(item)
         }
       }
+      this.moviesdbService.res = this.res
+      console.log(this.moviesdbService.res)
 
     })
   }
@@ -63,6 +66,7 @@ export class SearchComponent implements OnInit{
           this.res.push(item)
         }
       }
+      this.moviesdbService.res = this.res
       console.log(this.res)
     })
     // this.moviesdbService.getAll().subscribe((result: allMovies) => {

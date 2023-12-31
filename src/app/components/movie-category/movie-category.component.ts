@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { MoviesDBService } from 'src/app/Services/movies-db.service';
 
 
 @Component({
@@ -8,7 +10,18 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieCategoryComponent {
 
-  @Input() title='';
-  @Input() movieList:any[]=[];
+  router = inject(Router)
+  moviesDBService = inject(MoviesDBService);
+
+  @Input() title = '';
+  @Input() movieList: any[] = [];
+
+  getMovieDetails(event) {
+    // console.log(event.movie)
+
+    this.moviesDBService.currentMovie = event.movie
+    this.router.navigateByUrl('/Movie/'+event.movie.id)
+    console.log(this.moviesDBService.currentMovie)
+  }
 
 }
