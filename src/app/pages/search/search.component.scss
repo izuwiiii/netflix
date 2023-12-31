@@ -81,5 +81,19 @@
 }
 
 .browse-page {
-    background-color: #141414
+    background-color: #141414;
+    min-height: 80vh;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+
+    .show-more-btn {
+        background-color: white; 
+        padding: 10px 20px;
+        border-radius: 4px;
+    }
 }

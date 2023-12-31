@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { allMovies } from 'src/app/Models/allMoviesList';
 import { MoviesDBService } from 'src/app/Services/movies-db.service';
 import { AVATAR_IMAGE_URL, DOWNARROW_IMAGE_URL, GIFTBOX_IMAGE_URL, LOGO_URL, NOTIFICATIONS_IMAGE_URL, SEARCH_IMAGE_URL } from 'src/app/constants/config';
 
@@ -8,7 +9,7 @@ import { AVATAR_IMAGE_URL, DOWNARROW_IMAGE_URL, GIFTBOX_IMAGE_URL, LOGO_URL, NOT
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   constructor(private router: Router, private service: MoviesDBService) {}
 
   logoUrl: string = LOGO_URL
@@ -24,30 +25,20 @@ export class HeaderComponent {
   input: string = ''
 
   srcList: any[] = []
+
+  all!: allMovies;
  
   navigateToMain() {
     this.router.navigateByUrl('/Login')
   }
 
-  makeUniq = (arr) => [...new Set(arr)];
-
   searchShow(text) {
     this.input = text.value
-    this.service.moviesList.forEach(item => {
-      item.find(x => {
-        // console.log(x.title.includes(this.input))
-        if (x.title.toLowerCase().includes(this.input.toLowerCase())) {
-          // console.log(x.title.toLowerCase())
-          // this.srcList.forEach(it => {
-          //   // console.log(it.id )
-          // })
-          this.srcList.push(x)
-        }
+    this.service.searchName = text.value
+    console.log(this.service.searchName)
+  }
 
-      })
-    })
-    // console.log(this.srcList)
-    this.service.getSearchedList(this.srcList)
-    return this.srcList
+  ngOnInit() {
+
   }
 }

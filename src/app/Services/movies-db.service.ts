@@ -16,6 +16,19 @@ export class MoviesDBService implements OnInit {
 
   }
 
+  // Get All
+
+  page: number = 1
+
+  searchName: string = ''
+
+  getAll(page) {
+    const headers = this.getHeaders()
+    return this.http.get(`https://api.themoviedb.org/3/search/movie?query=${this.searchName}&include_adult=false&language=en-US&page=${page}`, {
+      headers: headers,
+    })
+  }
+
   // movieList: any = {}
 
   name: string = ''
@@ -28,16 +41,7 @@ export class MoviesDBService implements OnInit {
     this.randomPage = Math.floor(Math.random() * 5)
   }
   
-  getMoviesList(list) {
-    this.moviesList = list
-    // console.log(this.moviesList)
-  }
-
-  getSearchedList(list) {
-    console.log(list)
-    this.res = list
-    // console.log(this.res)
-  }
+  
 
   // Headers
 
@@ -212,6 +216,8 @@ export class MoviesDBService implements OnInit {
       headers: headers,
     })
   }
+
+
 
   
 }

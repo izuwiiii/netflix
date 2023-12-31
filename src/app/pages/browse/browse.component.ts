@@ -8,6 +8,7 @@ import {
   PLAY_IMAGE_URL,
 } from 'src/app/constants/config';
 import { DomSanitizer} from '@angular/platform-browser';
+import { allMovies } from 'src/app/Models/allMoviesList';
 
 @Component({
   selector: 'app-browse',
@@ -37,7 +38,6 @@ export class BrowseComponent {
   comediesTV: any[] = [];
 
   bannerMovie!: Movie;
-
 
   ngOnInit() {
     // MOVIES
@@ -99,6 +99,8 @@ export class BrowseComponent {
       // console.log(this.comediesTV)
     });
 
-    this.moviesdbService.getMoviesList(this.allMovies)
+
+
+    // this.moviesdbService.moviesList(this.allMovies)
   }
 }

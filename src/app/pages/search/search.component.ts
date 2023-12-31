@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnChanges, OnInit, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { allMovies } from 'src/app/Models/allMoviesList';
 import { Movie } from 'src/app/Models/movies';
 import { MoviesDBService } from 'src/app/Services/movies-db.service';
 import { INFO_IMAGE_URL, LOGO_URL, PLAY_IMAGE_URL } from 'src/app/constants/config';
@@ -9,77 +10,65 @@ import { INFO_IMAGE_URL, LOGO_URL, PLAY_IMAGE_URL } from 'src/app/constants/conf
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent {
-  constructor(public domSanitizer: DomSanitizer) {}
+export class SearchComponent implements OnInit{
+  constructor() {}
 
   moviesdbService = inject(MoviesDBService)
   logoUrl = LOGO_URL
-
-  playBtnUrl: string = PLAY_IMAGE_URL
-  infoBtnUrl: string = INFO_IMAGE_URL
 
   searchedList: any[] = this.moviesdbService.moviesList
 
   res: any[] = this.moviesdbService.res
 
-  result: any[]
+  searchedResults!: allMovies;
 
-  trendingMovie: any[] = []
+  all!: allMovies;
 
-  tvShow: Movie[] = []
+  canLoad: boolean = true;
 
-  airing: any[] = []
+  showMore() {
+    this.moviesdbService.page++
+    console.log(this.moviesdbService.page)
+    this.moviesdbService.getAll(this.moviesdbService.page).subscribe((result: any) => {
+      this.searchedResults = result.results
+      console.log(result)
+      if (result.total_pages == this.moviesdbService.page) {
+        this.canLoad = false
+      } else {
+        this.canLoad = true
 
-  nextWeek: any[] = []
+        console.log(this.res)
+      }
+      for (let item of result.results) {
+        if (item.poster_path) {
+          this.res.push(item)
+        }
+      }
 
-  bannerMovie!: Movie;
+    })
+  }
 
   ngOnInit() {
-
-    this.res.forEach(x => {
-      // x = x.title
-      this.res = [...new Set(x)]
-      x.filter((el:any, id:any) => x.indexOf(el) === id)
-      console.log(x)
-
+    this.moviesdbService.page = 1
+    console.log('search')
+    this.res = []
+    this.moviesdbService.getAll(this.moviesdbService.page).subscribe((result: any) => {
+      this.searchedResults = result.results
+      console.log(result)
+      // if (this.page < result.total_pages) {
+      //   this.canLoad = true
+      // }
+      for (let item of result.results) {
+        if (item.poster_path) {
+          this.res.push(item)
+        }
+      }
       console.log(this.res)
     })
-
-    console.log(this.searchedList)
-    console.log(this.res)
-
-    // MOVIES
-
-    // this.moviesdbService.getTrendingTVShows().subscribe((result: any) => {
-    //   this.tvShow = result.results
-    //   this.bannerMovie = this.tvShow[0];
-    //   this.moviesdbService
-    //     .getTVVideos(this.bannerMovie.id)
-    //     .subscribe((res: any) => {
-    //       console.log(res)
-    //       res.results.find(
-    //         (x: any) =>  {
-    //           console.log(res.results)
-    //           console.log(x)
-    //           x.site = 'YouTube'
-    //           this.bannerMovie.videoKey = x.key
-    //         }
-    //       )
-    //       console.log(this.bannerMovie)
-    //     });
-    // })
-
-    // this.moviesdbService.getTrendingMovies().subscribe((result: any) => {
-    //   this.trendingMovie = result.results
-    // })
-
-    // this.moviesdbService.getAiringTodayTVShows().subscribe((result: any) => {
-    //   this.airing = result.results
-    // })
-
-    // this.moviesdbService.getOnTheAirTVShows().subscribe((result: any) => {
-    //   this.nextWeek = result.results
-    // })
+    // this.moviesdbService.getAll().subscribe((result: allMovies) => {
+    //   this.all = result;
+    //   console.log(this.all)
+    // });
 
   }
 }

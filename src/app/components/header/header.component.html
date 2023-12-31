@@ -12,13 +12,8 @@
     <div class="profile-list">
         <ul>
             <li class="search">
-
-                <!-- <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option mat-option [value]=""></mat-option>
-                </mat-autocomplete> -->
                 <input #text placeholder="Search">
                 <img routerLink="/Search" (click)="searchShow(text)" src="{{searchUrl}}" alt="search">
-
             </li>
             <li>{{username}}</li>
             <li><img src="{{giftboxUrl}}" alt="giftbox"></li>
