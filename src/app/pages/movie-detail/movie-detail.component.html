@@ -5,14 +5,17 @@
                 <h1>{{movie.title}}</h1>
                 <div class="btn-wrapper">
                     <button class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>
+                    <button class="plus-btn btn"><img [src]="plusBtnUrl" alt="plus btn"></button>
+                    <button class="like-btn btn"><img [src]="thumbsBtnUrl" alt="thumbs btn"></button>
+                    <button class="volume-btn btn"><img [src]="volumeBtnUrl" alt="volume btn"></button>
                 </div>
-
             </div>
-            <div class="card-description">
-                <p>{{movie.overview}}</p>
+            <section>
+                <div class="card-description">
+                    <p>{{movie.overview}}</p>
+                </div>
+            </section>
 
-            </div>
         </div>
-
     </div>
 </div>

@@ -20,6 +20,15 @@ export const INSTAGRAM_IMAGE_URL = './assets/images/Vectorinstagram.svg'
 export const TWITTER_IMAGE_URL = './assets/images/Vectortwitter.svg'
 export const YOUTUBE_IMAGE_URL = './assets/images/Vectoryoutube.svg'
 
+export const PLUS_IMAGE_URL = './assets/images/plus-solid.svg'
+export const MINUS_IMAGE_URL = './assets/images/minus-solid.svg'
+
+
+export const THUMBS_BLACK_IMAGE_URL = './assets/images/thumbs-up-black.svg'
+export const THUMBS_IMAGE_URL = './assets/images/thumbs-up.svg'
+
+export const VOLUME_IMAGE_URL = './assets/images/volume.svg'
+
 export const tmbdConfig = {
     apiKey: '63e275a8b3e09a9d4864bf72da8854f5',
     accesToken: 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2UyNzVhOGIzZTA5YTlkNDg2NGJmNzJkYTg4NTRmNSIsInN1YiI6IjY1NzRlMmYxN2EzYzUyMDBlYmZkMjRkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9yQqbMVSMSeiMyeXhTXawxGN024dGjX4Ok3X6W3tpkU'
