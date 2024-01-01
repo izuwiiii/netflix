@@ -30,9 +30,20 @@ export class MovieDetailComponent implements OnInit {
   volumeBtnUrl: string = VOLUME_IMAGE_URL;
 
   res: any[] = []
+
+  detailShow: boolean = false
   
+  checkDetails(event) {
+    if (event.target.className == 'main-div') {
+      this.detailShow = false
+      this.moviesDBService.movDetail = false
+      return
+    }
+    this.moviesDBService.movDetail = true
+    this.detailShow = true
+  }
+
   ngOnInit() {
     console.log(this.movie)
-
   }
 }

@@ -15,12 +15,14 @@ export class MoviesListComponent {
   @Input() title = '';
   @Input() movieList: any[] = [];
 
+
   getMovieDetails(event) {
     // console.log(event.movie)
 
     this.moviesDBService.currentMovie = event.movie
     this.router.navigateByUrl('/Movie/'+event.movie.id)
     console.log(this.moviesDBService.currentMovie)
+
   }
 
 }

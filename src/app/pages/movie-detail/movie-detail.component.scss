@@ -1,8 +1,10 @@
 .all {
     width: 100vw;
-    height: 100vh;
-
+    height: 100%;
+    position: fixed;
+    z-index: 99;
     color: white;
+    margin-bottom: 200px;
 
     .main-div {
         display: flex;

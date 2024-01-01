@@ -18,6 +18,8 @@ export class MoviesDBService implements OnInit {
 
   currentMovie: GetMovie;
 
+  movDetail: boolean = false
+
   // Get All
 
   page: number = 1

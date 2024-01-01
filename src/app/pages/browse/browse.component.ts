@@ -39,6 +39,7 @@ export class BrowseComponent {
 
   bannerMovie!: Movie;
 
+  showDetail: boolean = false
 
   ngOnInit() {
     // MOVIES

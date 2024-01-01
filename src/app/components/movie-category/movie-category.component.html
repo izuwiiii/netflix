@@ -1,4 +1,4 @@
-<h2 class="text-white font-bold mb-2 text-xl">{{title}} </h2>
+<h2 class="text-white font-bold mb-2 text-xl">{{title}}</h2>
 <swiper-container 
     navigation="true" 
     pagination="false"
@@ -10,5 +10,5 @@
     <swiper-slide class="flex gap-2" *ngFor="let movie of movieList; track movie" >
         <app-movie-card (click)="getMovieDetails(card)" #card [movie]="movie" [movieList]="movieList"></app-movie-card>
     </swiper-slide>
+    
 </swiper-container>
-
