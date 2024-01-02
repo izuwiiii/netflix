@@ -13,7 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';

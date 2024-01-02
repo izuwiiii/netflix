@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="browse-page">  
+    <app-movie-detail  *ngIf="moviesdbService.movDetail"></app-movie-detail>
     <!-- <div class="banner-movie-info" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+airing[0].backdrop_path+')'}">
         <div class="movie-info">
             <h1>{{airing[0].name}}</h1>

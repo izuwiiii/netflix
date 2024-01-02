@@ -7,7 +7,8 @@ import { MoviesDBService } from 'src/app/Services/movies-db.service';
 @Component({
   selector: 'app-movie-category',
   templateUrl: './movie-category.component.html',
-  styleUrls: ['./movie-category.component.scss']
+  styleUrls: ['./movie-category.component.scss'],
+  
 })
 export class MovieCategoryComponent {
 
@@ -31,5 +32,7 @@ export class MovieCategoryComponent {
     console.log(this.moviesDBService.currentMovie)
 
   }
+  
+
 
 }

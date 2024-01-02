@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="browse-page">
+    <app-movie-detail  *ngIf="moviesdbService.movDetail"></app-movie-detail>
     <div class="banner-movie-info">
         <img
             *ngIf="!(bannerMovie || bannerMovie.videoKey)"

@@ -5,10 +5,20 @@ import { allMovies } from 'src/app/Models/allMoviesList';
 import { GetMovie } from 'src/app/Models/movie';
 import { MINUS_IMAGE_URL, PLAY_IMAGE_URL, PLUS_IMAGE_URL, THUMBS_BLACK_IMAGE_URL, THUMBS_IMAGE_URL, VOLUME_IMAGE_URL } from 'src/app/constants/config';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  keyframes
+} from '@angular/animations'
+
+
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.scss']
+  styleUrls: ['./movie-detail.component.scss'],
 })
 export class MovieDetailComponent implements OnInit {
   selectedMovie: GetMovie;
@@ -34,7 +44,7 @@ export class MovieDetailComponent implements OnInit {
   detailShow: boolean = false
   
   checkDetails(event) {
-    if (event.target.className == 'main-div') {
+    if (event.target.className.slice(0,8) == 'main-div') {
       this.detailShow = false
       this.moviesDBService.movDetail = false
       return
@@ -46,4 +56,5 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     console.log(this.movie)
   }
+
 }

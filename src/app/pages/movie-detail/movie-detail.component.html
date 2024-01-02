@@ -1,6 +1,7 @@
 <div class="all" (click)="checkDetails($event)">
     <div class="main-div">
         <div class="movie-card">
+
             <div class="card-header" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+movie.backdrop_path+')'}">
                 <h1>{{movie.title || movie.name}}</h1>
                 <div class="btn-wrapper">
@@ -10,12 +11,13 @@
                     <button class="volume-btn btn"><img [src]="volumeBtnUrl" alt="volume btn"></button>
                 </div>
             </div>
+
             <section>
                 <div class="card-description">
                     <p>{{movie.overview}}</p>
                 </div>
             </section>
-
+            
         </div>
     </div>
 </div>
