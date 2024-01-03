@@ -10,7 +10,19 @@ import { AVATAR_IMAGE_URL, DOWNARROW_IMAGE_URL, GIFTBOX_IMAGE_URL, LOGO_URL, NOT
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
-  constructor(private router: Router, private service: MoviesDBService) {}
+  constructor(private router: Router, private service: MoviesDBService) {
+    document.addEventListener('scroll', () => {
+      this.scroll = window.scrollY
+      if (this.scroll == 0) {
+        this.transparentHeader = true
+      } else {
+        this.transparentHeader = false
+      }
+      // console.log(this.scroll)
+    })
+  }
+
+  transparentHeader: boolean = true;
 
   logoUrl: string = LOGO_URL
 
@@ -27,6 +39,8 @@ export class HeaderComponent implements OnInit{
   srcList: any[] = []
 
   all!: allMovies;
+
+  scroll: number = window.scrollY
  
   navigateToMain() {
     this.router.navigateByUrl('/Login')
@@ -39,6 +53,5 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit() {
-
   }
 }

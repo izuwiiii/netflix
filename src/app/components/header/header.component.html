@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" [ngStyle]="transparentHeader?{'background-color': 'transparent'} : {'background-color': '#141414'}">
     <img (click)="navigateToMain()" [src]="logoUrl" alt="logo" class="logo w-52">
     <div class="navbar">
         <ul>

@@ -18,6 +18,10 @@ export class MyMoviesListComponent {
 
   mov: GetMovie;
 
+  ngOnInit() {
+    console.log(this.movieList.length)
+  }
+
   getMovieDetails(event) {
     this.showDetail = true
     this.moviesDBService.movDetail = this.showDetail

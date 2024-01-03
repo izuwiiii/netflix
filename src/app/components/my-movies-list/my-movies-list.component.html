@@ -1,5 +1,5 @@
 <h2 class="text-white font-bold mb-2 text-xl">{{title}} </h2>
-<div class="all">
+<div class="all" *ngIf="movieList.length >= 1">
     <div class="container" >
         <ng-container *ngFor="let movie of movieList">
             <div class="card-container" >
@@ -8,4 +8,4 @@
         </ng-container>
     </div>
 </div>
-
+<h1 >First add something to your list!</h1>

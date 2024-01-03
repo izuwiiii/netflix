@@ -12,8 +12,12 @@ export class MoviesDBService implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
+  scroll: number = 0
+
+  getScrollValue() {
+    this.scroll = window.scrollY
   }
 
   currentMovie: GetMovie;
