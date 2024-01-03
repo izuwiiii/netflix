@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
+import { MoviesDBService } from 'src/app/Services/movies-db.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,9 +8,24 @@ import { CarouselModule } from 'primeng/carousel';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
+
+  moviesDBService = inject(MoviesDBService)
+
   @Input() title = '';
   @Input() movie: any = {};
   @Input() movieList: any[] = [];
 
+  canAddToList: boolean = true
+
+  addToMyList() {
+
+    // if (this.moviesDBService.myMoviesList.includes(this.movie)) {
+    //   this.moviesDBService.canAddToList = false
+    //   return
+    // } else {
+    //   this.moviesDBService.canAddToList = true
+    // }
+
+  }
 
 }

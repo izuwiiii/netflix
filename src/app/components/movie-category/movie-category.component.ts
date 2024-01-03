@@ -29,7 +29,7 @@ export class MovieCategoryComponent {
     this.moviesDBService.currentMovie = event.movie
     this.mov = this.moviesDBService.currentMovie
     // this.router.navigateByUrl('/Movie/'+event.movie.id)
-    console.log(this.moviesDBService.currentMovie)
+    // console.log(this.moviesDBService.currentMovie)
 
   }
   

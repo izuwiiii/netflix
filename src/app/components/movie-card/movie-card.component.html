@@ -1,27 +1,6 @@
-<div class="movie-card">
+<div class="movie-card" (click)="addToMyList()">
     <img *ngIf="movie.poster_path" class="movie-image" 
          [src]="'http://image.tmdb.org/t/p/w500/'+movie.poster_path" 
     >
     <p *ngIf="!movie.poster_path">No Photo</p>
 </div>
-
-
-<!-- [responsiveOptions]="responsiveOptions" -->
-<!-- <p-carousel [value]="movieList" [numVisible]="3" [numScroll]="1" >
-    <ng-template let-product pTemplate="item">
-        <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
-            <div class="mb-3">
-                <img [src]="'http://image.tmdb.org/t/p/w500/'+product.poster_path" [alt]="product.title" class="w-6 shadow-2"/>
-            </div>
-            <div>
-                <h4 class="mb-1">{{ product.title }}</h4>
-                <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6>
-                <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag>
-                <div class="car-buttons mt-5">
-                    <p-button type="button" styleClass="p-button p-button-rounded mr-2" icon="pi pi-search"></p-button>
-                    <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-star-fill"></p-button>
-                </div>
-            </div>
-        </div>
-    </ng-template>
-</p-carousel> -->

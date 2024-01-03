@@ -21,11 +21,10 @@ export class MyMoviesListComponent {
   getMovieDetails(event) {
     this.showDetail = true
     this.moviesDBService.movDetail = this.showDetail
-    // console.log(event.movie)
     this.moviesDBService.currentMovie = event.movie
     this.mov = this.moviesDBService.currentMovie
     // this.router.navigateByUrl('/Movie/'+event.movie.id)
-    console.log(this.moviesDBService.currentMovie)
+    // console.log(this.moviesDBService.currentMovie)
   }
   
 

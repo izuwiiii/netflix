@@ -22,6 +22,7 @@ export class MoviesDBService implements OnInit {
 
   // My list
 
+  moviesId: any[] = []
 
   canAddToList: boolean = true
 

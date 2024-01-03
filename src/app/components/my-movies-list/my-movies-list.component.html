@@ -3,7 +3,7 @@
     <div class="container" >
         <ng-container *ngFor="let movie of movieList">
             <div class="card-container" >
-                <app-movie-card #card [movie]="movie" [movieList]="movieList"></app-movie-card>
+                <app-movie-card (click)="getMovieDetails(card)" #card [movie]="movie" [movieList]="movieList"></app-movie-card>
             </div>
         </ng-container>
     </div>

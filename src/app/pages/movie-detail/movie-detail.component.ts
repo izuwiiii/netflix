@@ -44,6 +44,7 @@ export class MovieDetailComponent implements OnInit {
   detailShow: boolean = false
   
   checkDetails(event) {
+    console.log(this.canAddToMyList)
     if (event.target.className.slice(0,8) == 'main-div') {
       this.detailShow = false
       this.moviesDBService.movDetail = false
@@ -53,42 +54,37 @@ export class MovieDetailComponent implements OnInit {
     this.detailShow = true
   }
 
+  remove: any[] = []
+  canAddToMyList: boolean = true
+
   ngOnInit() {
     console.log(this.movie)
-  }
+    if (!this.moviesDBService.moviesId.includes(this.movie.id)) {
+      this.canAddToMyList = true
+      return
+    }
+    this.canAddToMyList = false
 
-  canAddToList: boolean = true
+  }
 
   addToMyList() {
-
-    if (this.moviesDBService.myMoviesList.includes(this.movie)) {
-      console.log(this.moviesDBService.myMoviesList.includes(this.movie))
-
-      this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
-      this.moviesDBService.myMoviesList.pop()
-
-      console.log(this.movie)
-      console.log(this.moviesDBService.myMoviesList)
-      console.log(this.moviesDBService.myMoviesList.includes(this.movie))
-      return
-    } 
-    console.log(this.moviesDBService.myMoviesList.includes(this.movie))
-    
-    this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
-    this.moviesDBService.myMoviesList.push(this.movie)
-    
     console.log(this.movie)
-    console.log(this.moviesDBService.myMoviesList)
-    console.log(this.moviesDBService.myMoviesList.includes(this.movie))
-    // if (this.moviesDBService.canAddToList) {
-    //   this.moviesDBService.myMoviesList.push(this.movie)
-    //   this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
-    //   console.log(this.moviesDBService.canAddToList)
-    //   return
-    // }
-    // this.moviesDBService.myMoviesList.pop()
-    // this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
-    // console.log(this.moviesDBService.canAddToList)
-  }
+    if (!this.moviesDBService.moviesId.includes(this.movie.id)) {
+      this.canAddToMyList = !this.canAddToMyList
+      this.moviesDBService.moviesId.push(this.movie.id)
+      this.moviesDBService.myMoviesList.push(this.movie)
+      return
+    }
+    if (this.moviesDBService.moviesId.includes(this.movie.id)) {
+      this.canAddToMyList = !this.canAddToMyList
+      this.moviesDBService.myMoviesList.forEach((x, i) => {
+        if (x.id == this.movie.id) {
+          this.remove = this.moviesDBService.moviesId.splice(i, 1)
+          this.remove = this.moviesDBService.myMoviesList.splice(i, 1)
+        }
+      })
+      return
+    }
 
+  }
 }
