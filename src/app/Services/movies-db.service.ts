@@ -20,6 +20,13 @@ export class MoviesDBService implements OnInit {
 
   movDetail: boolean = false
 
+  // My list
+
+
+  canAddToList: boolean = true
+
+  myMoviesList: any[] = []
+
   // Get All
 
   page: number = 1

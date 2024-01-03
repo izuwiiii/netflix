@@ -26,6 +26,7 @@ import { MyListComponent } from './pages/my-list/my-list.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
+import { MyMoviesListComponent } from './components/my-movies-list/my-movies-list.component';
 
 // register Swiper custom elements
 register();
@@ -46,7 +47,8 @@ register();
     MyListComponent,
     SearchComponent,
     MoviesListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MyMoviesListComponent
   ],
   imports: [
     BrowserModule,

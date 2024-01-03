@@ -57,4 +57,38 @@ export class MovieDetailComponent implements OnInit {
     console.log(this.movie)
   }
 
+  canAddToList: boolean = true
+
+  addToMyList() {
+
+    if (this.moviesDBService.myMoviesList.includes(this.movie)) {
+      console.log(this.moviesDBService.myMoviesList.includes(this.movie))
+
+      this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
+      this.moviesDBService.myMoviesList.pop()
+
+      console.log(this.movie)
+      console.log(this.moviesDBService.myMoviesList)
+      console.log(this.moviesDBService.myMoviesList.includes(this.movie))
+      return
+    } 
+    console.log(this.moviesDBService.myMoviesList.includes(this.movie))
+    
+    this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
+    this.moviesDBService.myMoviesList.push(this.movie)
+    
+    console.log(this.movie)
+    console.log(this.moviesDBService.myMoviesList)
+    console.log(this.moviesDBService.myMoviesList.includes(this.movie))
+    // if (this.moviesDBService.canAddToList) {
+    //   this.moviesDBService.myMoviesList.push(this.movie)
+    //   this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
+    //   console.log(this.moviesDBService.canAddToList)
+    //   return
+    // }
+    // this.moviesDBService.myMoviesList.pop()
+    // this.moviesDBService.canAddToList = !this.moviesDBService.canAddToList
+    // console.log(this.moviesDBService.canAddToList)
+  }
+
 }
