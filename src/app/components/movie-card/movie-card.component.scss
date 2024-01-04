@@ -2,17 +2,18 @@
     color: white;
     width: 200px;
     height: 250px;
-    transition: ease 0.3s;
+    transition: ease-in-out 0.3s;
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
 
+
     .movie-image {
         width: 200px;
         height: 250px;
-
+        border-radius: 4px;
     }
 }
 
