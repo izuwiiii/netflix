@@ -15,7 +15,7 @@
             <section>
                 <div class="part1">
                     <div class="new">
-
+                        <span class="release">Release</span><p>{{releaseDate | date:'y'}}</p><p>{{hours}} h {{minutes}} m</p>
                     </div>
                     <div class="card-description">
                         <p>{{movie.overview}}</p>
@@ -25,7 +25,7 @@
 
                 <div class="about">
                     <div class="companies">
-
+                        <span>Companies:</span><p *ngFor="let comp of prodRes">{{comp}}</p>
                     </div>
                     <div class="genres">
                         <span>Genres:</span><p *ngFor="let genre of genreRes">{{genre}}</p>

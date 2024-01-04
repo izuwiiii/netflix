@@ -74,11 +74,13 @@
     background-color: #141414;
     padding-left: 50px;
     color: white;
+    
     h1 {
         padding: 50px 50px 50px 0;
         font-size: 40px;
         text-decoration: underline;
         cursor: pointer;
+        width: fit-content;
     }
 }
 

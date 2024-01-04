@@ -13,7 +13,8 @@ import {
   transition,
   keyframes
 } from '@angular/animations'
-import { Genre, movieDetails } from 'src/app/Models/movieDetails';
+import { Genre, ProductionCompany, movieDetails } from 'src/app/Models/movieDetails';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,6 +23,8 @@ import { Genre, movieDetails } from 'src/app/Models/movieDetails';
   styleUrls: ['./movie-detail.component.scss'],
 })
 export class MovieDetailComponent implements OnInit {
+  constructor(private toastr: ToastrService) { }
+
   selectedMovie: GetMovie;
   movieId: number;
   searchedResults!: allMovies;
@@ -48,7 +51,17 @@ export class MovieDetailComponent implements OnInit {
 
   movieGenres: Genre[];
 
-  genreRes: any[] = []
+  genreRes: any[] = [];
+
+  releaseDate: string;
+
+  runtime: string;
+
+  hours: number;
+  minutes: number;
+
+  prodComp: any[] = []
+  prodRes: any[] = []
 
   sortGenres() {
     this.movieGenres.map((item: any, i) => {
@@ -58,6 +71,18 @@ export class MovieDetailComponent implements OnInit {
       }
       if (i+1 ==  this.movieGenres.length) {
         this.genreRes.push(item)
+      }
+    })
+  }
+
+  sortComp() {
+    this.prodComp.map((item: any, i) => {
+      if (!(i+1 ==  this.prodComp.length)) {
+        item = item+','
+        this.prodRes.push(item)
+      }
+      if (i+1 ==  this.prodComp.length) {
+        this.prodRes.push(item)
       }
     })
   }
@@ -80,11 +105,20 @@ export class MovieDetailComponent implements OnInit {
     this.movieGenres = []
     this.moviesDBService.getMovieDetails(this.movie.id).subscribe((result: any) => {
       this.curMovie = result
+      this.releaseDate = result.release_date
+      this.runtime = result.runtime
       console.log(this.curMovie)
+      this.hours = Math.floor(+this.runtime / 60)
+      this.minutes = +this.runtime % 60
+      // this.prodComp = result.production_companies
       result.genres.forEach(data => {
         this.movieGenres.push(data.name)
       })
+      result.production_companies.forEach(data => {
+        this.prodComp.push(data.name)
+      })
       this.sortGenres()
+      this.sortComp()
     })
 
     if (!this.moviesDBService.moviesId.includes(this.movie.id)) {
@@ -100,10 +134,12 @@ export class MovieDetailComponent implements OnInit {
       this.canAddToMyList = !this.canAddToMyList
       this.moviesDBService.moviesId.push(this.movie.id)
       this.moviesDBService.myMoviesList.push(this.movie)
+      this.toastr.success('Succesfully added to your list')
       return
     }
     if (this.moviesDBService.moviesId.includes(this.movie.id)) {
       this.canAddToMyList = !this.canAddToMyList
+      this.toastr.success('Succesfully removed from your list')
       this.moviesDBService.myMoviesList.forEach((x, i) => {
         if (x.id == this.movie.id) {
           this.remove = this.moviesDBService.moviesId.splice(i, 1)
