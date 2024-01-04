@@ -28,6 +28,8 @@ export class PopularComponent {
 
   bannerMovie!: Movie;
 
+
+
   ngOnInit() {
 
     // MOVIES
@@ -38,16 +40,16 @@ export class PopularComponent {
       this.moviesdbService
         .getTVVideos(this.bannerMovie.id)
         .subscribe((res: any) => {
-          console.log(res)
+          // console.log(res)
           res.results.find(
             (x: any) =>  {
-              console.log(res.results)
-              console.log(x)
+              // console.log(res.results)
+              // console.log(x)
               x.site = 'YouTube'
               this.bannerMovie.videoKey = x.key
             }
           )
-          console.log(this.bannerMovie)
+
         });
     })
 

@@ -3,6 +3,7 @@
     <app-movie-detail  *ngIf="moviesDBService.movDetail"></app-movie-detail>
     <div class="movie-categories">
         <app-my-movies-list [title]="'My List'" [movieList]="myList"></app-my-movies-list>
+        <h1 (click)="toMainPage()" *ngIf="myList.length == 0">First add something to your list!</h1>
     </div>                                    
 </div>
 <app-footer></app-footer>

@@ -66,11 +66,19 @@
 .browse-page {
     height: 100vh;
     background-color: #141414;
+    padding-top: 80px;
 }
 
 .movie-categories {
     padding-top: 20px;
     background-color: #141414;
     padding-left: 50px;
+    color: white;
+    h1 {
+        padding: 50px 50px 50px 0;
+        font-size: 40px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 
