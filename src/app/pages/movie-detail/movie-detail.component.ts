@@ -13,6 +13,7 @@ import {
   transition,
   keyframes
 } from '@angular/animations'
+import { Genre, movieDetails } from 'src/app/Models/movieDetails';
 
 
 @Component({
@@ -42,9 +43,26 @@ export class MovieDetailComponent implements OnInit {
   res: any[] = []
 
   detailShow: boolean = false
+
+  curMovie!: movieDetails;
+
+  movieGenres: Genre[];
+
+  genreRes: any[] = []
+
+  sortGenres() {
+    this.movieGenres.map((item: any, i) => {
+      if (!(i+1 ==  this.movieGenres.length)) {
+        item = item+','
+        this.genreRes.push(item)
+      }
+      if (i+1 ==  this.movieGenres.length) {
+        this.genreRes.push(item)
+      }
+    })
+  }
   
   checkDetails(event) {
-    console.log(this.canAddToMyList)
     if (event.target.className.slice(0,8) == 'main-div') {
       this.detailShow = false
       this.moviesDBService.movDetail = false
@@ -57,8 +75,18 @@ export class MovieDetailComponent implements OnInit {
   remove: any[] = []
   canAddToMyList: boolean = true
 
-  ngOnInit() {
-    console.log(this.movie)
+  ngOnInit() {  
+    // console.log(this.movie)
+    this.movieGenres = []
+    this.moviesDBService.getMovieDetails(this.movie.id).subscribe((result: any) => {
+      this.curMovie = result
+      console.log(this.curMovie)
+      result.genres.forEach(data => {
+        this.movieGenres.push(data.name)
+      })
+      this.sortGenres()
+    })
+
     if (!this.moviesDBService.moviesId.includes(this.movie.id)) {
       this.canAddToMyList = true
       return
@@ -68,7 +96,6 @@ export class MovieDetailComponent implements OnInit {
   }
 
   addToMyList() {
-    console.log(this.movie)
     if (!this.moviesDBService.moviesId.includes(this.movie.id)) {
       this.canAddToMyList = !this.canAddToMyList
       this.moviesDBService.moviesId.push(this.movie.id)
@@ -85,6 +112,10 @@ export class MovieDetailComponent implements OnInit {
       })
       return
     }
+  }
+
+  getDetails() {    
+
 
   }
 }

@@ -21,7 +21,7 @@ export class BrowseComponent {
     //   console.log(window.scrollY)
     // })
   }
-
+  
   moviesdbService = inject(MoviesDBService);
   logoUrl = LOGO_URL;
 
@@ -55,7 +55,6 @@ export class BrowseComponent {
   // }
   ngOnInit() {
     // MOVIES
-    
 
     console.log(window.scrollY)
 

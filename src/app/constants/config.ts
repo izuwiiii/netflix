@@ -25,7 +25,7 @@ export const MINUS_IMAGE_URL = './assets/images/minus-solid.svg'
 
 
 export const THUMBS_BLACK_IMAGE_URL = './assets/images/thumbs-up-black.svg'
-export const THUMBS_IMAGE_URL = './assets/images/thumbs-up.svg'
+export const THUMBS_IMAGE_URL = './assets/images/thumbs-up-white.svg'
 
 export const VOLUME_IMAGE_URL = './assets/images/volume.svg'
 

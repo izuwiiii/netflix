@@ -13,8 +13,23 @@
             </div>
 
             <section>
-                <div class="card-description">
-                    <p>{{movie.overview}}</p>
+                <div class="part1">
+                    <div class="new">
+
+                    </div>
+                    <div class="card-description">
+                        <p>{{movie.overview}}</p>
+                    </div>
+                </div>
+
+
+                <div class="about">
+                    <div class="companies">
+
+                    </div>
+                    <div class="genres">
+                        <span>Genres:</span><p *ngFor="let genre of genreRes">{{genre}}</p>
+                    </div>
                 </div>
             </section>
             
