@@ -1,0 +1,101 @@
+.browse-page {
+    height: 100vh;
+    background-color: #141414;
+    padding-top: 80px;
+
+    .about {
+        padding-top: 40px;
+        padding-left: 60px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        color: white;
+
+
+        .picture {
+
+            img {
+                width: 350px;
+                height: 350px;
+                border-radius: 4px;
+            }
+        }
+
+        .descr {
+            margin-left: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            a {
+                font-style: italic;
+                font-family: 'Noto Sans', sans-serif;
+            }
+
+            .overview {
+                font-size: 1.4rem;
+            }
+
+            .contact {
+                display: flex;
+                gap: 10px;
+                font-size: 1.4rem;
+
+                p {
+                    width: fit-content;
+                }
+
+                .linkedin {
+                    color: rgb(0, 119, 181);
+                    display: flex;
+                    gap: 5px;
+                }
+
+                .inst {
+                    color: rgb(138, 58, 185);
+                    display: flex;
+                    gap: 5px;
+                }
+            }
+            
+            .other {
+                display: flex;
+                gap: 10px;
+                font-size: 1.4rem;
+                
+                p {
+                    width: fit-content;
+                }
+
+                .git {
+                    display: flex;
+                    gap: 5px;
+                }
+            }
+
+
+            .title {
+                font-family: 'Bebas Neue', sans-serif;
+                font-size: 3rem;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.movie-categories {
+    padding-top: 20px;
+    background-color: #141414;
+    padding-left: 50px;
+    color: white;
+    
+    h1 {
+        padding: 50px 50px 50px 0;
+        font-size: 40px;
+        text-decoration: underline;
+        cursor: pointer;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}
+

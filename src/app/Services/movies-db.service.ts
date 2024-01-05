@@ -38,6 +38,8 @@ export class MoviesDBService implements OnInit {
 
   searchName: string = ''
 
+  
+
   getAll(page) {
     const headers = this.getHeaders()
     return this.http.get(`https://api.themoviedb.org/3/search/multi?query=${this.searchName || 'one piece'}&include_adult=true&language=en-US&page=${page}`, {

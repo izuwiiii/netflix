@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="browse-page">  
+    <app-movie-detail  *ngIf="moviesDBService.movDetail"></app-movie-detail>
+    <div class="about">
+        <div class="picture">
+            <img [src]="this.logoUrl">
+        </div>
+        <div class="descr">
+            <div class="title">
+                HI! I'M YAROSLAV KATSARSKIY
+            </div>
+            <div class="overview">
+                <p>I have a keen interest in programming and I like to keep developing stuff for fun. I create clean, professional and functional websites.</p>
+            </div>
+            <div class="contact">
+                <p>Contact me </p><a target="_blank" href="https://www.linkedin.com/in/yaroslav-katsarskiy-280b182a4/" class="linkedin"><img [src]="linkUrl" alt="LinkedIn">LinkedIn </a> <a target="_blank" href="https://www.instagram.com/katsarskiy_y2.0/" class="inst"><img [src]="instUrl" alt="Instagram">Instagram</a>
+            </div>
+            <div class="other">
+                <p>Check my other projects</p><a target="_blank" href="https://github.com/izuwik" class="git"> <img [src]="gitUrl" alt="GitHub">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <div class="movie-categories">
+        <!-- <app-my-movies-list [title]="'My List'" [movieList]="myList"></app-my-movies-list> -->
+    </div>                                    
+</div>
+<app-footer></app-footer>

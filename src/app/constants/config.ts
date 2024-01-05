@@ -29,6 +29,10 @@ export const THUMBS_IMAGE_URL = './assets/images/thumbs-up-white.svg'
 
 export const VOLUME_IMAGE_URL = './assets/images/volume.svg'
 
+export const GIT_IMAGE_URL = './assets/images/github.svg'
+export const INST_IMAGE_URL = './assets/images/instagram.svg'
+export const LINK_IMAGE_URL = './assets/images/linkedin-in.svg'
+
 export const tmbdConfig = {
     apiKey: '63e275a8b3e09a9d4864bf72da8854f5',
     accesToken: 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2UyNzVhOGIzZTA5YTlkNDg2NGJmNzJkYTg4NTRmNSIsInN1YiI6IjY1NzRlMmYxN2EzYzUyMDBlYmZkMjRkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9yQqbMVSMSeiMyeXhTXawxGN024dGjX4Ok3X6W3tpkU'

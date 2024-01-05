@@ -51,28 +51,25 @@ export class SearchComponent implements OnInit{
     })
   }
 
-  ngOnInit() {
+  search() {
     this.moviesdbService.page = 1
     console.log('search')
     this.res = []
     this.moviesdbService.getAll(this.moviesdbService.page).subscribe((result: any) => {
       this.searchedResults = result.results
       console.log(result)
-      // if (this.page < result.total_pages) {
-      //   this.canLoad = true
-      // }
       for (let item of result.results) {
         if (item.poster_path) {
-          this.res.push(item)
+          this.res.push(item) 
         }
       }
       this.moviesdbService.res = this.res
       console.log(this.res)
     })
-    // this.moviesdbService.getAll().subscribe((result: allMovies) => {
-    //   this.all = result;
-    //   console.log(this.all)
-    // });
+  }
+
+  ngOnInit() {
+    this.search()
 
   }
 }

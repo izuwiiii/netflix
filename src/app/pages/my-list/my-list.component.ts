@@ -24,11 +24,6 @@ export class MyListComponent {
   }
 
   ngOnInit() {
-
-    // MOVIES
-
     this.myList = this.moviesDBService.myMoviesList
-
-
   }
 }
