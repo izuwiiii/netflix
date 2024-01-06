@@ -37,39 +37,23 @@ export class SearchComponent implements OnInit{
         this.canLoad = false
       } else {
         this.canLoad = true
-
         console.log(this.res)
       }
       for (let item of result.results) {
-        if (item.poster_path) {
-          this.res.push(item)
+        if (item.adult === false && item.poster_path) {
+          this.moviesdbService.ress.push(item)
         }
       }
-      this.moviesdbService.res = this.res
-      console.log(this.moviesdbService.res)
+      // this.moviesdbService.ress = this.res
+      console.log(this.moviesdbService.ress)
 
     })
   }
 
-  search() {
-    this.moviesdbService.page = 1
-    console.log('search')
-    this.res = []
-    this.moviesdbService.getAll(this.moviesdbService.page).subscribe((result: any) => {
-      this.searchedResults = result.results
-      console.log(result)
-      for (let item of result.results) {
-        if (item.poster_path) {
-          this.res.push(item) 
-        }
-      }
-      this.moviesdbService.res = this.res
-      console.log(this.res)
-    })
-  }
+
 
   ngOnInit() {
-    this.search()
+    this.moviesdbService.search()
 
   }
 }

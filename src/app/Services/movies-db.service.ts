@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { MOVIES_URL, tmbdConfig } from '../constants/config';
 import { GetMovie } from '../Models/movie';
+import { allMovies } from '../Models/allMoviesList';
 
 
 @Injectable({
@@ -39,7 +40,25 @@ export class MoviesDBService implements OnInit {
   searchName: string = ''
 
   
+  searchedResults!: allMovies;
+  
+  ress: any[] = []
 
+  search() {
+    this.page = 1
+    console.log('search')
+    this.ress = []
+    this.getAll(this.page).subscribe((result: any) => {
+      this.searchedResults = result.results
+      console.log(result)
+      for (let item of result.results) {
+        if (item.adult === false && item.poster_path) {
+          this.ress.push(item) 
+        }
+      }
+    })
+  }
+  
   getAll(page) {
     const headers = this.getHeaders()
     return this.http.get(`https://api.themoviedb.org/3/search/multi?query=${this.searchName || 'one piece'}&include_adult=true&language=en-US&page=${page}`, {

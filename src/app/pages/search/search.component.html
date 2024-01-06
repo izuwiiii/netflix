@@ -2,7 +2,7 @@
 <div class="browse-page">  
     <app-movie-detail  *ngIf="moviesdbService.movDetail"></app-movie-detail>
     <div class="movie-categories">
-        <app-movies-list [title]="'Results:'" [movieList]="res"></app-movies-list>
+        <app-movies-list [title]="'Results:'" [movieList]="moviesdbService.ress"></app-movies-list>
         <div class="btn-wrapper">
             <button *ngIf="canLoad" class="show-more-btn" (click)="showMore()">Show More</button>
         </div>

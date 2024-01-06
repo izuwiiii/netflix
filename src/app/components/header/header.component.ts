@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit{
     this.input = text.value
     this.service.searchName = text.value
     console.log(this.service.searchName)
-
+    this.service.search()
   }
 
   ngOnInit() {
