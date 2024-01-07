@@ -14,8 +14,11 @@
 
             <section>
                 <div class="part1">
-                    <div class="new">
+                    <div class="new"*ngIf="this.movie.media_type == 'movie'">
                         <span class="release">Release</span><p>{{releaseDate | date:'y'}}</p><p>{{hours}} h {{minutes}} m</p>
+                    </div>
+                    <div class="new" *ngIf="this.movie.media_type == 'tv'" >
+                        <span class="release">Release</span><p>{{releaseDate | date:'y'}}</p><p>{{runtime}} ep </p>
                     </div>
                     <div class="card-description">
                         <p>{{movie.overview}}</p>

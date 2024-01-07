@@ -66,12 +66,13 @@ export class MoviesDBService implements OnInit {
     })
   }
 
-  getMovieDetails(id) {
+  getMovieDetails(type, id) {
     const headers = this.getHeaders()
-    return this.http.get(`https://api.themoviedb.org/3/movie/`+id+`?language=en-US`, {
+    return this.http.get(`https://api.themoviedb.org/3/`+type+`/`+id+`?language=en-US`, {
       headers: headers,
     })
   }
+  
 
   // movieList: any = {}
 

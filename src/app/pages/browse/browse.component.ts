@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie, Video } from 'src/app/Models/movies';
 import { MoviesDBService } from 'src/app/Services/movies-db.service';
@@ -13,9 +13,9 @@ import { allMovies } from 'src/app/Models/allMoviesList';
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
-  styleUrls: ['./browse.component.scss'],
+  styleUrls: ['./browse.component.scss']
 })
-export class BrowseComponent {
+export class BrowseComponent implements OnInit {
   constructor(private router: Router, public domSanitizer: DomSanitizer) {
     // document.addEventListener('scroll', () => {
     //   console.log(window.scrollY)
@@ -47,18 +47,13 @@ export class BrowseComponent {
 
   scroll: number = 0
 
-  // @HostListener('window:scroll', ['$event']) 
-  // doSomething() {
-  //   // console.debug("Scroll Event", document.body.scrollTop);
-  //   // see András Szepesházi's comment below
-  //   console.debug("Scroll Event", window.scrollY );
-  // }
+
   ngOnInit() {
     // MOVIES
 
     console.log(window.scrollY)
 
-    this.moviesdbService.getPopularMovies().subscribe((result: any) => {
+     this.moviesdbService.getPopularMovies().subscribe((result: any) => {
       this.popularMovie = result.results;
       this.allMovies.push(result.results);
       this.bannerMovie = this.popularMovie[0];

@@ -103,13 +103,20 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {  
     // console.log(this.movie)
     this.movieGenres = []
-    this.moviesDBService.getMovieDetails(this.movie.id).subscribe((result: any) => {
+    this.moviesDBService.getMovieDetails(this.movie.media_type,this.movie.id).subscribe((result: any) => {
       this.curMovie = result
-      this.releaseDate = result.release_date
-      this.runtime = result.runtime
-      console.log(this.curMovie)
-      this.hours = Math.floor(+this.runtime / 60)
-      this.minutes = +this.runtime % 60
+      if (this.movie.media_type == 'movie') {
+        this.releaseDate = result.release_date
+        this.runtime = result.runtime
+        this.hours = Math.floor(+this.runtime / 60)
+        this.minutes = +this.runtime % 60
+      } else {
+        this.releaseDate = result.first_air_date
+        this.runtime = result.number_of_episodes
+        console.log(this.runtime)
+      }
+
+
       // this.prodComp = result.production_companies
       result.genres.forEach(data => {
         this.movieGenres.push(data.name)

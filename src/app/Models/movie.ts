@@ -15,4 +15,5 @@ export class GetMovie {
     vote_average: number;
     vote_count: number;
     name?: string;
+    media_type?: string;
 }
