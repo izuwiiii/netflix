@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Movie, Video } from 'src/app/Models/movies';
+import { Movie } from 'src/app/Models/movies';
 import { MoviesDBService } from 'src/app/Services/movies-db.service';
 import {
   INFO_IMAGE_URL,
@@ -48,14 +48,20 @@ export class BrowseComponent implements OnInit {
   scroll: number = 0
 
 
+  getMovieDetails(event) {
+    console.log(event)
+    this.moviesdbService.currentMovie = event.movie
+
+  }
+
   ngOnInit() {
     // MOVIES
+
 
     console.log(window.scrollY)
 
      this.moviesdbService.getPopularMovies().subscribe((result: any) => {
       this.popularMovie = result.results;
-      this.allMovies.push(result.results);
       this.bannerMovie = this.popularMovie[0];
       this.moviesdbService
         .getMovieVideos(this.bannerMovie.id)

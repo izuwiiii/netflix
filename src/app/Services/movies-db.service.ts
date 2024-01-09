@@ -98,6 +98,16 @@ export class MoviesDBService implements OnInit {
 
   // Video
 
+  getVideos(type, id) {
+    const header = this.getHeaders()
+    return this.http.get(
+      'https://api.themoviedb.org/3/'+type+'/'+id+'/videos',
+      {
+        headers: header
+      }
+    )
+  }
+
   getMovieVideos(movieId: number) {
     const header = this.getHeaders()
     return this.http.get(

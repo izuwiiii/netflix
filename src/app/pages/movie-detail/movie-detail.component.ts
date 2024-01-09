@@ -15,6 +15,7 @@ import {
 } from '@angular/animations'
 import { Genre, ProductionCompany, movieDetails } from 'src/app/Models/movieDetails';
 import { ToastrService } from 'ngx-toastr';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -101,32 +102,43 @@ export class MovieDetailComponent implements OnInit {
   canAddToMyList: boolean = true
 
   ngOnInit() {  
-    // console.log(this.movie)
+
+    console.log(this.movie)
     this.movieGenres = []
-    this.moviesDBService.getMovieDetails(this.movie.media_type,this.movie.id).subscribe((result: any) => {
-      this.curMovie = result
-      if (this.movie.media_type == 'movie') {
-        this.releaseDate = result.release_date
-        this.runtime = result.runtime
-        this.hours = Math.floor(+this.runtime / 60)
-        this.minutes = +this.runtime % 60
-      } else {
-        this.releaseDate = result.first_air_date
-        this.runtime = result.number_of_episodes
-        console.log(this.runtime)
-      }
+    if (!this.movie.media_type) {
+      this.movie.media_type = 'movie'
+    }
+    try {
+      this.moviesDBService.getMovieDetails(this.movie.media_type, this.movie.id).subscribe((result: any) => {
 
-
-      // this.prodComp = result.production_companies
-      result.genres.forEach(data => {
-        this.movieGenres.push(data.name)
+        this.curMovie = result
+        
+        console.log(this.movie)
+        if (this.movie.media_type == 'movie') {
+          this.releaseDate = result.release_date
+          this.runtime = result.runtime
+          this.hours = Math.floor(+this.runtime / 60)
+          this.minutes = +this.runtime % 60
+        } else {
+          this.releaseDate = result.first_air_date
+          this.runtime = result.number_of_episodes
+          // console.log(this.runtime)
+        }
+  
+        // this.prodComp = result.production_companies
+        result.genres.forEach(data => {
+          this.movieGenres.push(data.name)
+        })
+        result.production_companies.forEach(data => {
+          this.prodComp.push(data.name)
+        })
+        this.sortGenres()
+        this.sortComp()
       })
-      result.production_companies.forEach(data => {
-        this.prodComp.push(data.name)
-      })
-      this.sortGenres()
-      this.sortComp()
-    })
+    } catch (error) {
+      console.log(error.status)
+    }
+    
 
     if (!this.moviesDBService.moviesId.includes(this.movie.id)) {
       this.canAddToMyList = true
@@ -157,8 +169,4 @@ export class MovieDetailComponent implements OnInit {
     }
   }
 
-  getDetails() {    
-
-
-  }
 }

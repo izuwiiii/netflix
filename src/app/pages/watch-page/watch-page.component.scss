@@ -1,0 +1,44 @@
+.all {
+    width: 100vw;
+    height: 100%;
+    position: relative;
+    // z-index: 99;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.755);
+
+    .main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        height: 950px;
+    
+        .movie-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            background-color: #141414;
+            width: 100vw;
+            height: 100vh;
+            
+            .banner-movie-info {
+
+                p {
+                    margin-top: 200px;
+                    font-size: 30px;
+                    color: red;
+                }
+
+                iframe {
+                    padding: 100px;
+                    width: 100vw;
+                    height: 1000px;
+                }
+            }
+
+        }
+
+    
+    }
+}

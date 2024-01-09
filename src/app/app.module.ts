@@ -28,6 +28,7 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 import { MyMoviesListComponent } from './components/my-movies-list/my-movies-list.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WatchPageComponent } from './pages/watch-page/watch-page.component';
 
 // register Swiper custom elements
 register();
@@ -50,7 +51,8 @@ register();
     MoviesListComponent,
     MovieDetailComponent,
     MyMoviesListComponent,
-    ProfileComponent
+    ProfileComponent,
+    WatchPageComponent
   ],
   imports: [
     BrowserModule,

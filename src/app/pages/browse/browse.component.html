@@ -24,8 +24,8 @@
             <h1>{{bannerMovie.original_title}}</h1>
             <p>{{bannerMovie.overview}}</p>
             <div class="buttons-wrapper">
-                <button class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>
-                <button class="info-btn"><img [src]="infoBtnUrl" alt="info btn"><p>More Info</p></button>
+                <button [routerLink]="'/Watch'" (click)="getMovieDetails(bannerMovie)" class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>
+                <!-- <button class="info-btn"><img [src]="infoBtnUrl" alt="info btn"><p>More Info</p></button> -->
             </div>
         </div>
             <!-- <div class="movie-info">&origin=http://example.com

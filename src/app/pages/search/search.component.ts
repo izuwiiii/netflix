@@ -23,8 +23,6 @@ export class SearchComponent implements OnInit{
 
   searchedResults!: allMovies;
 
-  // all!: allMovies;
-
   canLoad: boolean = true;
 
   showMore() {

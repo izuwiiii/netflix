@@ -10,6 +10,7 @@ import { MyListComponent } from './pages/my-list/my-list.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WatchPageComponent } from './pages/watch-page/watch-page.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'Search', component: SearchComponent},
   {path: 'Movie/:id', component: MovieDetailComponent},
   {path: 'Profile', component: ProfileComponent},
+  {path: 'Watch', component: WatchPageComponent},
 
   {path: '**', component: NotFoundPageComponent},
   
