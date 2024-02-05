@@ -13,7 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { WatchPageComponent } from './pages/watch-page/watch-page.component';
 
 const routes: Routes = [
-
+  {path: '', component: BrowseComponent},
   {path: 'Home', component: BrowseComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Tvshows', component: TvshowsComponent},
