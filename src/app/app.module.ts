@@ -21,7 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TvshowsComponent } from './pages/tvshows/tvshows.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { MoviesComponent } from './pages/movies/movies.component';
-import { PopularComponent } from './pages/popular/popular.component';
+import { PopularComponent } from  './pages/popular/popular.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
