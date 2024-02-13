@@ -7,7 +7,7 @@
         class="banner-img"
         [src]="
         domSanitizer.bypassSecurityTrustResourceUrl(
-            'http://image.tmdb.org/t/p/w500/' + bannerMovie.videoKey
+            'https://image.tmdb.org/t/p/w500/' + bannerMovie.videoKey
         )
         "
         alt="banner"
@@ -22,7 +22,7 @@
             allow="autoplay; encrypted-media"
             [src]="
             domSanitizer.bypassSecurityTrustResourceUrl(
-                'http://www.youtube.com/embed/' +
+                'https://www.youtube.com/embed/' +
                 bannerMovie.videoKey +
                 '?mute=1&autoplay=1&controls=0&showinfo=0&loop=1&modestbranding=1&autohide=1&rel=0'
             )

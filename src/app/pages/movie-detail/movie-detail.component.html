@@ -2,7 +2,7 @@
     <div class="main-div">
         <div class="movie-card">
 
-            <div class="card-header" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/'+movie.backdrop_path+')'}">
+            <div class="card-header" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500/'+movie.backdrop_path+')'}">
                 <h1>{{movie.title || movie.name}}</h1>
                 <div class="btn-wrapper">
                     <button [routerLink]="'/Watch'" class="play-btn"><img [src]="playBtnUrl" alt="play btn"><p>Play</p></button>

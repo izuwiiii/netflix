@@ -5,7 +5,7 @@
     <div class="banner-movie-info">
         <img *ngIf="!(bannerMovie || bannerMovie.videoKey)"
             class="banner-img"
-            [src]="domSanitizer.bypassSecurityTrustResourceUrl('http://image.tmdb.org/t/p/w500/' + bannerMovie.videoKey)" 
+            [src]="domSanitizer.bypassSecurityTrustResourceUrl('https://image.tmdb.org/t/p/w500/' + bannerMovie.videoKey)" 
             alt="banner">
         <!-- <div class="frame"> -->
         <iframe 
@@ -16,7 +16,7 @@
             height="100%"
             frameBorder="0"
             allow='autoplay; encrypted-media'
-            [src]="domSanitizer.bypassSecurityTrustResourceUrl('http://www.youtube.com/embed/'+bannerMovie.videoKey+'?mute=1&autoplay=1&controls=0&showinfo=0&loop=1&modestbranding=1&autohide=1&rel=0&frameborder=0?origin=https://braintool.org')" 
+            [src]="domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+bannerMovie.videoKey+'?mute=1&autoplay=1&controls=0&showinfo=0&loop=1&modestbranding=1&autohide=1&rel=0&frameborder=0?origin=https://braintool.org')" 
             >
         </iframe>
         <!-- </div> -->
